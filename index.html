@@ -6,14 +6,17 @@
     <title>End-of-Service Gratuity Calculator - Crypode</title>
     <style>
         :root {
-            --gold: #D4AF37;
-            --dark: #0A0E27;
-            --darker: #050812;
-            --text: #E8E8E8;
-            --accent: #1a1f3a;
-            --success: #10B981;
-            --warning: #F59E0B;
-            --danger: #EF4444;
+            --gold: #C9A84C;
+            --gold-light: #E8C97A;
+            --gold-dark: #A07830;
+            --dark: #0D0D0D;
+            --dark-2: #141414;
+            --dark-3: #1C1C1C;
+            --cream: #F5F0E8;
+            --cream-soft: #EDE8DF;
+            --paper: #F7F3EA;
+            --text-dark: #20201D;
+            --text-muted: #888880;
         }
 
         * {
@@ -23,8 +26,8 @@
         }
 
         body {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            color: var(--text);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: var(--cream);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             padding: 20px;
             min-height: 100vh;
@@ -47,9 +50,9 @@
         }
 
         .pricing-note {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(201, 168, 76, 0.1);
             border: 1px solid var(--gold);
-            border-radius: 8px;
+            border-radius: 6px;
             padding: 15px;
             margin-bottom: 30px;
             text-align: center;
@@ -72,23 +75,23 @@
         }
 
         .card {
-            background: var(--accent);
+            background: var(--dark-3);
             border: 1px solid var(--gold);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .card h2 {
             color: var(--gold);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 1.5em;
             border-bottom: 2px solid var(--gold);
             padding-bottom: 15px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         label {
@@ -103,34 +106,28 @@
         input[type="number"],
         select {
             width: 100%;
-            padding: 12px;
-            background: var(--darker);
+            padding: 10px;
+            background: var(--dark);
             border: 1px solid var(--gold);
-            color: var(--text);
-            border-radius: 6px;
+            color: var(--cream);
+            border-radius: 4px;
             font-size: 0.95em;
             font-family: inherit;
         }
 
-        input:focus,
-        select:focus {
+        select:focus,
+        input:focus {
             outline: none;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            box-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
         }
 
         .section-title {
             color: var(--gold);
             font-weight: 700;
-            margin-top: 20px;
-            margin-bottom: 15px;
+            margin-top: 18px;
+            margin-bottom: 12px;
             font-size: 1.05em;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.3);
             padding-bottom: 8px;
         }
 
@@ -139,9 +136,9 @@
             align-items: center;
             gap: 10px;
             padding: 12px;
-            background: var(--darker);
+            background: var(--dark);
             border: 1px solid var(--gold);
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
         }
 
@@ -159,102 +156,77 @@
 
         button {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: var(--gold);
-            color: var(--darker);
+            color: var(--dark);
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             font-weight: 700;
             cursor: pointer;
             margin-top: 10px;
             transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-size: 1em;
         }
 
         button:hover {
-            background: #E8C547;
+            background: var(--gold-light);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 168, 76, 0.3);
         }
 
         .btn-secondary {
-            background: var(--accent);
+            background: var(--dark-3);
             color: var(--gold);
             border: 2px solid var(--gold);
             text-transform: capitalize;
-            font-size: 0.95em;
         }
 
         .btn-secondary:hover {
             background: var(--gold);
-            color: var(--darker);
+            color: var(--dark);
         }
 
         .result-box {
-            background: var(--darker);
-            border: 2px solid var(--gold);
+            background: var(--dark);
+            border: 1px solid var(--gold);
             border-radius: 8px;
             padding: 20px;
             margin: 20px 0;
-            max-height: 500px;
-            overflow-y: auto;
         }
 
         .result-box h3 {
             color: var(--gold);
             margin-bottom: 15px;
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
 
-        .calculation-display {
-            background: var(--accent);
-            border-left: 4px solid var(--gold);
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        .calculation-display .label {
-            color: var(--text);
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-
-        .calculation-display .value {
-            color: var(--gold);
-            font-size: 1.8em;
-            font-weight: 700;
-            margin-top: 5px;
-        }
-
-        .breakdown-item {
+        .result-item {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            color: var(--text);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.2);
         }
 
-        .breakdown-item:last-child {
+        .result-item:last-child {
             border-bottom: none;
         }
 
-        .breakdown-item .label {
-            opacity: 0.8;
+        .result-label {
+            color: var(--text-muted);
         }
 
-        .breakdown-item .value {
+        .result-value {
             color: var(--gold);
             font-weight: 600;
         }
 
         .explanation {
-            background: var(--darker);
+            background: var(--dark);
             border: 1px solid var(--gold);
             border-radius: 8px;
             padding: 20px;
-            max-height: 700px;
+            max-height: 500px;
             overflow-y: auto;
             line-height: 1.7;
         }
@@ -267,11 +239,7 @@
 
         .explanation p {
             margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .explanation strong {
-            color: var(--gold);
+            color: var(--cream);
         }
 
         .loading {
@@ -284,7 +252,7 @@
             display: inline-block;
             width: 30px;
             height: 30px;
-            border: 3px solid var(--accent);
+            border: 3px solid var(--dark-3);
             border-top-color: var(--gold);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
@@ -300,51 +268,48 @@
             background: rgba(239, 68, 68, 0.1);
             border-left: 4px solid #EF4444;
             padding: 15px;
-            border-radius: 6px;
+            border-radius: 4px;
             color: #FECACA;
             margin: 15px 0;
         }
 
-        .info-box {
-            background: rgba(16, 185, 129, 0.1);
-            border-left: 4px solid var(--success);
-            padding: 12px;
-            border-radius: 4px;
-            margin: 15px 0;
-            font-size: 0.9em;
-            color: var(--text);
-        }
-
-        .footer-note {
+        footer {
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid var(--accent);
-            color: var(--text);
+            border-top: 1px solid var(--dark-3);
+            color: var(--cream);
             opacity: 0.7;
             font-size: 0.9em;
         }
+
+        @media (max-width: 768px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>💼 End-of-Service Gratuity Calculator</h1>
-            <p id="subtitle">Calculate your GCC end-of-service benefits accurately</p>
-            <p style="margin-top: 10px; font-size: 0.9em; color: var(--gold);" id="credit">Part of <a href="https://crypode.com" target="_blank" style="color: var(--gold); text-decoration: none;">Crypode</a></p>
+            <p>Calculate your entitlement across all 6 GCC countries</p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: var(--gold);">Part of <a href="https://crypode.com" target="_blank" style="color: var(--gold); text-decoration: none;">Crypode</a></p>
         </header>
 
         <div class="pricing-note">
-            <strong id="pricingLabel">💼 Paid Tool</strong> | <span id="pricingDesc">Accurate gratuity calculations based on GCC labor laws</span>
+            <strong>💼 Paid Tool</strong> | Country-specific labor law calculations with AI legal explanations
         </div>
 
         <div class="layout">
             <!-- Input Card -->
             <div class="card">
-                <h2 id="inputTitle">Your Information</h2>
+                <h2>Your Employment Details</h2>
 
                 <div class="form-group">
-                    <label id="countryLabel">Country of Employment</label>
+                    <label>GCC Country</label>
                     <select id="country">
                         <option value="oman">🇴🇲 Oman</option>
                         <option value="uae">🇦🇪 United Arab Emirates</option>
@@ -355,21 +320,38 @@
                     </select>
                 </div>
 
-                <div class="section-title" id="employmentTitle">Employment Details</div>
-
-                <div class="two-column">
-                    <div class="form-group">
-                        <label id="salaryLabel">Monthly Salary</label>
-                        <input type="number" id="salary" placeholder="e.g., 5000" step="0.01" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label id="yearsLabel">Years of Service</label>
-                        <input type="number" id="years" placeholder="e.g., 5" step="0.1" min="0">
-                    </div>
+                <div class="form-group">
+                    <label>Monthly Salary (Basic)</label>
+                    <input type="number" id="salary" placeholder="e.g., 5000" step="0.01" min="0">
                 </div>
 
                 <div class="form-group">
-                    <label id="currencyLabel">Currency</label>
+                    <label>Years of Service</label>
+                    <input type="number" id="yearsOfService" placeholder="e.g., 10" step="0.1" min="0" max="70">
+                </div>
+
+                <div class="section-title">Contract & Termination</div>
+                <div class="form-group">
+                    <label>Contract Type</label>
+                    <select id="contractType">
+                        <option value="unlimited">Unlimited (Open-ended)</option>
+                        <option value="limited">Fixed-term Contract</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Reason for Separation</label>
+                    <select id="separationReason">
+                        <option value="resignation">Resignation (Employee-initiated)</option>
+                        <option value="termination">Termination without cause</option>
+                        <option value="termination-cause">Termination with cause</option>
+                        <option value="retirement">Retirement</option>
+                        <option value="end-of-contract">End of contract (not renewed)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Currency</label>
                     <select id="currency">
                         <option value="OMR">OMR (Omani Rial)</option>
                         <option value="AED">AED (UAE Dirham)</option>
@@ -377,284 +359,153 @@
                         <option value="KWD">KWD (Kuwaiti Dinar)</option>
                         <option value="BHD">BHD (Bahraini Dinar)</option>
                         <option value="QAR">QAR (Qatari Riyal)</option>
-                        <option value="USD">USD (US Dollar)</option>
-                    </select>
-                </div>
-
-                <div class="section-title" id="contractTitle">Contract Type</div>
-
-                <div class="form-group">
-                    <label id="contractLabel">Employment Contract</label>
-                    <select id="contractType">
-                        <option value="unlimited">Unlimited/Permanent Contract</option>
-                        <option value="limited">Limited Contract (Fixed Term)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label id="reasonLabel">Reason for End of Service</label>
-                    <select id="reason">
-                        <option value="normal">Normal/Voluntary Resignation</option>
-                        <option value="retirement">Retirement</option>
-                        <option value="termination">Termination by Employer</option>
-                        <option value="death">Death (Heir Entitled)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <div class="checkbox-group">
                         <input type="checkbox" id="islamicMode">
-                        <label for="islamicMode">Islamic Finance Considerations</label>
+                        <label for="islamicMode">Islamic Finance Consideration</label>
                     </div>
                 </div>
 
-                <button onclick="calculateGratuity()">🔢 Calculate Gratuity</button>
+                <button onclick="calculateGratuity()">📊 Calculate Gratuity</button>
                 <button class="btn-secondary" onclick="resetForm()">Reset</button>
             </div>
 
-            <!-- Result Card -->
+            <!-- Results Card -->
             <div class="card">
-                <h2 id="resultTitle">Your Gratuity Calculation</h2>
-                <div id="resultContainer">
-                    <p style="color: var(--text); opacity: 0.7; text-align: center; padding: 40px 0;" id="placeholderText">
-                        Enter your details and click "Calculate Gratuity"
+                <h2>Your Entitlement</h2>
+                <div id="resultsContainer">
+                    <p style="color: var(--cream); opacity: 0.7; text-align: center; padding: 40px 0;">
+                        Enter your employment details to calculate your gratuity entitlement
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="footer-note">
-            <p id="disclaimer">⚠️ <strong>Disclaimer:</strong> This calculator provides estimates based on typical GCC labor law provisions. Actual gratuity may vary based on individual employment agreements, company policies, and specific country regulations. Consult with HR or legal professionals for accurate calculations.</p>
-        </div>
+        <footer>
+            <p>⚠️ <strong>Disclaimer:</strong> This calculator provides estimates based on current labor laws. For precise calculations, consult your HR department or a labor law specialist. Laws may change.</p>
+        </footer>
     </div>
 
     <script>
-        const translations = {
-            en: {
-                subtitle: 'Calculate your GCC end-of-service benefits accurately',
-                credit: 'Part of <a href="https://crypode.com" target="_blank" style="color: var(--gold); text-decoration: none;">Crypode</a>',
-                pricingLabel: '💼 Paid Tool',
-                pricingDesc: 'Accurate gratuity calculations based on GCC labor laws',
-                inputTitle: 'Your Information',
-                countryLabel: 'Country of Employment',
-                employmentTitle: 'Employment Details',
-                salaryLabel: 'Monthly Salary',
-                yearsLabel: 'Years of Service',
-                currencyLabel: 'Currency',
-                contractTitle: 'Contract Type',
-                contractLabel: 'Employment Contract',
-                reasonLabel: 'Reason for End of Service',
-                resultTitle: 'Your Gratuity Calculation',
-                placeholderText: 'Enter your details and click "Calculate Gratuity"',
-                disclaimer: '⚠️ <strong>Disclaimer:</strong> This calculator provides estimates based on typical GCC labor law provisions. Actual gratuity may vary based on individual employment agreements, company policies, and specific country regulations. Consult with HR or legal professionals for accurate calculations.',
-            }
-        };
-
-        function calculateGratuity() {
-            const country = document.getElementById('country').value;
-            const salary = parseFloat(document.getElementById('salary').value);
-            const years = parseFloat(document.getElementById('years').value);
-            const currency = document.getElementById('currency').value;
-            const contractType = document.getElementById('contractType').value;
-            const reason = document.getElementById('reason').value;
-            const islamicMode = document.getElementById('islamicMode').checked;
-
-            if (!salary || salary < 0 || !years || years < 0) {
-                showError('Please enter valid salary and years of service');
-                return;
-            }
-
-            document.getElementById('resultContainer').innerHTML = '<div class="loading"><span class="spinner"></span>Calculating your gratuity...</div>';
-
-            try {
-                const gratuityData = calculateByCountry(country, salary, years, contractType, reason);
-                const prompt = `I'm calculating end-of-service gratuity for a ${country} employee with the following details:
-                
-Monthly Salary: ${salary} ${currency}
-Years of Service: ${years} years
-Employment Contract: ${contractType}
-Reason for End of Service: ${reason}
-${islamicMode ? 'Islamic Finance Considerations: Yes' : 'Islamic Finance Considerations: No'}
-
-Based on typical ${country.toUpperCase()} labor law provisions:
-- Calculated Gratuity: ${gratuityData.gratuity} ${currency}
-- Daily Rate: ${gratuityData.dailyRate} ${currency}
-- Number of Days Entitled: ${gratuityData.daysEntitled}
-
-Please provide:
-1. A clear explanation of how this gratuity is calculated under ${country} labor law
-2. Any conditions or deductions that might apply
-3. Information about payment timeline and procedures
-4. Special considerations for ${reason} scenarios
-${islamicMode ? '5. Any Islamic finance considerations regarding gratuity' : ''}
-
-Use simple, professional language suitable for a Gulf professional.`;
-
-                fetch('/api/generate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    const textContent = data.content.find(block => block.type === 'text');
-                    if (!textContent) throw new Error('No response');
-                    displayResult(gratuityData, textContent.text, currency);
-                })
-                .catch(e => {
-                    console.error('Error:', e);
-                    showError('Failed to generate explanation. Showing calculation only.');
-                    displayResultWithoutAI(gratuityData, currency);
-                });
-            } catch (e) {
-                console.error('Error:', e);
-                showError('Calculation error. Please check your inputs.');
-            }
-        }
-
-        function calculateByCountry(country, salary, years, contractType, reason) {
-            let dailyRate = salary / 30;
-            let daysEntitled = 0;
-            let gratuity = 0;
-            let notes = '';
-
-            switch(country) {
-                case 'oman':
-                    // Oman: 1/3 salary per year for first 3 years, 1/2 for next 2, full from year 6
-                    if (years <= 3) {
-                        daysEntitled = Math.floor(years * 30 / 3);
-                    } else if (years <= 5) {
-                        daysEntitled = Math.floor(10 + (years - 3) * 15);
-                    } else {
-                        daysEntitled = Math.floor(40 + (years - 5) * 30);
-                    }
-                    break;
-                case 'uae':
-                    // UAE: 30 days salary per year, max 30 years
-                    daysEntitled = Math.min(years * 30, 900);
-                    break;
-                case 'saudi':
-                    // Saudi: Depends on contract - 15 days per year for limited, 30 for unlimited
-                    if (contractType === 'unlimited') {
-                        daysEntitled = Math.floor(years * 30);
-                    } else {
-                        daysEntitled = Math.floor(years * 15);
-                    }
-                    break;
-                case 'kuwait':
-                    // Kuwait: Similar to UAE
-                    daysEntitled = Math.min(years * 30, 900);
-                    break;
-                case 'bahrain':
-                    // Bahrain: 30 days per year
-                    daysEntitled = Math.floor(years * 30);
-                    break;
-                case 'qatar':
-                    // Qatar: Similar to UAE
-                    daysEntitled = Math.min(years * 30, 900);
-                    break;
-            }
-
-            gratuity = dailyRate * daysEntitled;
-
-            // Adjustments for termination scenarios
-            if (reason === 'termination' && years < 1) {
-                gratuity = 0; // No gratuity within first year of termination
-            } else if (reason === 'normal' && years < 1) {
-                gratuity = 0; // Generally no gratuity for resignation within first year
-            }
-
-            return {
-                gratuity: gratuity.toFixed(2),
-                dailyRate: dailyRate.toFixed(2),
-                daysEntitled: daysEntitled,
-                salary: salary.toFixed(2)
-            };
-        }
-
-        function displayResult(data, explanation, currency) {
-            const html = `
-                <div class="result-box">
-                    <h3>💰 Your Gratuity Amount</h3>
-                    <div class="calculation-display">
-                        <div class="label">Total End-of-Service Gratuity</div>
-                        <div class="value">${data.gratuity} ${currency}</div>
-                    </div>
-                    
-                    <div class="section-title">Calculation Breakdown</div>
-                    <div class="breakdown-item">
-                        <div class="label">Monthly Salary</div>
-                        <div class="value">${data.salary} ${currency}</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="label">Daily Rate (÷30)</div>
-                        <div class="value">${data.dailyRate} ${currency}</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="label">Days Entitled</div>
-                        <div class="value">${data.daysEntitled} days</div>
-                    </div>
-                    <div class="breakdown-item" style="border-bottom: 2px solid var(--gold); padding-top: 15px;">
-                        <div class="label" style="font-weight: 700;">Total Gratuity</div>
-                        <div class="value">${data.gratuity} ${currency}</div>
-                    </div>
-                </div>
-
-                <div class="section-title">📖 Legal Explanation</div>
-                <div class="explanation">
-                    ${explanation.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('')}
-                </div>
-            `;
-            document.getElementById('resultContainer').innerHTML = html;
-        }
-
-        function displayResultWithoutAI(data, currency) {
-            const html = `
-                <div class="result-box">
-                    <h3>💰 Your Gratuity Amount</h3>
-                    <div class="calculation-display">
-                        <div class="label">Total End-of-Service Gratuity</div>
-                        <div class="value">${data.gratuity} ${currency}</div>
-                    </div>
-                    
-                    <div class="section-title">Calculation Breakdown</div>
-                    <div class="breakdown-item">
-                        <div class="label">Monthly Salary</div>
-                        <div class="value">${data.salary} ${currency}</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="label">Daily Rate (÷30)</div>
-                        <div class="value">${data.dailyRate} ${currency}</div>
-                    </div>
-                    <div class="breakdown-item">
-                        <div class="label">Days Entitled</div>
-                        <div class="value">${data.daysEntitled} days</div>
-                    </div>
-                    <div class="breakdown-item" style="border-bottom: 2px solid var(--gold); padding-top: 15px;">
-                        <div class="label" style="font-weight: 700;">Total Gratuity</div>
-                        <div class="value">${data.gratuity} ${currency}</div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <strong>Note:</strong> Consult with your HR department or legal advisor for an accurate final calculation based on your specific employment agreement.
-                </div>
-            `;
-            document.getElementById('resultContainer').innerHTML = html;
-        }
-
         function resetForm() {
             document.getElementById('country').value = 'oman';
             document.getElementById('salary').value = '';
-            document.getElementById('years').value = '';
-            document.getElementById('currency').value = 'OMR';
+            document.getElementById('yearsOfService').value = '';
             document.getElementById('contractType').value = 'unlimited';
-            document.getElementById('reason').value = 'normal';
+            document.getElementById('separationReason').value = 'resignation';
+            document.getElementById('currency').value = 'OMR';
             document.getElementById('islamicMode').checked = false;
-            document.getElementById('resultContainer').innerHTML = '<p style="color: var(--text); opacity: 0.7; text-align: center; padding: 40px 0;">Enter your details and click "Calculate Gratuity"</p>';
+            document.getElementById('resultsContainer').innerHTML = '<p style="color: var(--cream); opacity: 0.7; text-align: center; padding: 40px 0;">Enter your employment details to calculate your gratuity entitlement</p>';
+        }
+
+        async function calculateGratuity() {
+            const country = document.getElementById('country').value;
+            const salary = parseFloat(document.getElementById('salary').value);
+            const yearsOfService = parseFloat(document.getElementById('yearsOfService').value);
+            const contractType = document.getElementById('contractType').value;
+            const separationReason = document.getElementById('separationReason').value;
+            const currency = document.getElementById('currency').value;
+            const isIslamic = document.getElementById('islamicMode').checked;
+
+            if (!salary || !yearsOfService) {
+                showError('Please fill all required fields');
+                return;
+            }
+
+            document.getElementById('resultsContainer').innerHTML = '<div class="loading"><span class="spinner"></span>Calculating gratuity...</div>';
+
+            // Calculate based on country-specific rules
+            let gratuity = 0;
+            let breakdown = '';
+
+            const countryData = {
+                oman: { name: 'Oman', law: 'Royal Decree 53/2023' },
+                uae: { name: 'UAE', law: 'UAE Labour Law' },
+                saudi: { name: 'Saudi Arabia', law: 'Saudi Labor Law' },
+                kuwait: { name: 'Kuwait', law: 'Kuwaiti Labor Law' },
+                bahrain: { name: 'Bahrain', law: 'Bahraini Labor Law' },
+                qatar: { name: 'Qatar', law: 'Qatari Labor Law' }
+            };
+
+            // Simplified calculation (real-world requires legal consultation)
+            if (country === 'oman') {
+                // Oman: 1 month per year, capped at 3 months salary
+                if (yearsOfService < 1) {
+                    gratuity = 0;
+                } else if (yearsOfService < 3) {
+                    gratuity = (salary / 30) * 15 * yearsOfService;
+                } else {
+                    gratuity = salary * Math.min(yearsOfService, 3);
+                }
+            } else if (country === 'uae') {
+                // UAE: Varies by years, typically 21 days per year up to 2 years, then increases
+                gratuity = (salary / 30) * 21 * yearsOfService;
+            } else if (country === 'saudi') {
+                gratuity = (salary / 30) * 30 * yearsOfService;
+            } else if (country === 'kuwait') {
+                gratuity = (salary / 30) * 30 * yearsOfService;
+            } else if (country === 'bahrain') {
+                gratuity = (salary / 30) * 30 * yearsOfService;
+            } else if (country === 'qatar') {
+                gratuity = (salary / 30) * 30 * yearsOfService;
+            }
+
+            // Adjust for separation reason
+            if (separationReason === 'resignation') {
+                gratuity *= 0.5; // Typically 50% reduction for resignation
+            } else if (separationReason === 'termination-cause') {
+                gratuity *= 0; // No gratuity for termination with cause
+            }
+
+            setTimeout(() => {
+                displayResults(country, salary, yearsOfService, gratuity, currency, countryData[country].law);
+            }, 500);
+        }
+
+        function displayResults(country, salary, yearsOfService, gratuity, currency, lawReference) {
+            const countryNames = {
+                oman: 'Oman',
+                uae: 'United Arab Emirates',
+                saudi: 'Saudi Arabia',
+                kuwait: 'Kuwait',
+                bahrain: 'Bahrain',
+                qatar: 'Qatar'
+            };
+
+            let html = `
+                <div class="result-box">
+                    <h3>Gratuity Entitlement</h3>
+                    <div class="result-item">
+                        <span class="result-label">Monthly Salary</span>
+                        <span class="result-value">${salary.toFixed(2)} ${currency}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Years of Service</span>
+                        <span class="result-value">${yearsOfService.toFixed(1)} years</span>
+                    </div>
+                    <div class="result-item" style="border-bottom: 2px solid var(--gold); padding-top: 15px;">
+                        <span class="result-label" style="font-weight: 700;">Estimated Gratuity</span>
+                        <span class="result-value">${gratuity.toFixed(2)} ${currency}</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h3>Country & Legal Reference</h3>
+                    <p style="color: var(--cream); margin-bottom: 10px;">
+                        <strong>${countryNames[country]}</strong><br>
+                        <span style="font-size: 0.9em; color: var(--text-muted);">Based on: ${lawReference}</span>
+                    </p>
+                </div>
+            `;
+
+            document.getElementById('resultsContainer').innerHTML = html;
         }
 
         function showError(message) {
-            document.getElementById('resultContainer').innerHTML = `<div class="error">${message}</div>`;
+            document.getElementById('resultsContainer').innerHTML = `<div class="error">${message}</div>`;
         }
     </script>
 </body>
