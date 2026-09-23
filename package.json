@@ -1,0 +1,8 @@
+{
+  "name": "gcc-gratuity-calculator",
+  "version": "1.0.0",
+  "description": "End-of-Service Gratuity Calculator for GCC Professionals",
+  "engines": {
+    "node": "24.x"
+  }
+}
